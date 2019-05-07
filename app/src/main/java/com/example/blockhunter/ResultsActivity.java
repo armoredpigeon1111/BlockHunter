@@ -1,5 +1,5 @@
 package com.example.blockhunter;
-
+//Richard is Working on Results page
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 

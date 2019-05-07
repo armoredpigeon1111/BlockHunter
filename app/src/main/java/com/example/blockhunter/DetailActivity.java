@@ -1,5 +1,5 @@
 package com.example.blockhunter;
-
+//Mohammad is working on Detail Activity
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
