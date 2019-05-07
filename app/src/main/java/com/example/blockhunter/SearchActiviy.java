@@ -1,3 +1,6 @@
+//Comment: This is a test by Leotis
+
+
 package com.example.blockhunter;
 
 import android.support.v7.app.AppCompatActivity;
