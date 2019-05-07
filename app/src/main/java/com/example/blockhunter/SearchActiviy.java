@@ -1,5 +1,5 @@
 //Class Project
-//Author of Search Page: Leotis Fields
+//Author of Search Page: Leotis M Fields
 
 package com.example.blockhunter;
 import android.support.v7.app.AppCompatActivity;
