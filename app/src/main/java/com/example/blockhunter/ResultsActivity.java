@@ -1,37 +1,69 @@
 package com.example.blockhunter;
-//Richard is Working on Results page
-//Doesn't work yet...Don't freak out if you try it
-import android.os.Bundle;
+
+
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
-
+import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity {
-    private RecyclerView recylerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
 
+    private static final String TAG = "MainActivity";
+
+    //vars
+    private ArrayList<String> mNames = new ArrayList<>();
+    private ArrayList<String> mImageUrls = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_results);
-        recylerView = (RecyclerView) findViewById(R.id.results_recycler_view);
+        setContentView(R.layout.activity_main);
+        Log.d(TAG, "onCreate: started.");
 
-        //sets size because the content should not change layout size
-        //MAY NEED TO CHANGE IF SYNDICATED CONTENT DOES NOT PLAY NICE
-        recylerView.setHasFixedSize(true);
-
-        //Linear Layout Manager
-        layoutManager = new LinearLayoutManager(this);
-        recylerView.setLayoutManager(layoutManager);
-
-        //setting the adapter
-        String[] resultsDataset = {"item 1", "item 2", "item 3", "item 4", "I'm a Lego", "item 6"};
-        mAdapter = new ResultsAdapter(resultsDataset);//changed myDataset to resultsDataset
-        recylerView.setAdapter(mAdapter);
+        initImageBitmaps();
     }
 
+    private void initImageBitmaps(){
+        Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
+
+        mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
+        mNames.add("Havasu Falls");
+
+        mImageUrls.add("https://i.redd.it/tpsnoz5bzo501.jpg");
+        mNames.add("Trondheim");
+
+
+        mImageUrls.add("https://i.redd.it/j6myfqglup501.jpg");
+        mNames.add("Rocky Mountain National Park");
+
+
+        mImageUrls.add("https://i.redd.it/0h2gm1ix6p501.jpg");
+        mNames.add("Mahahual");
+
+        mImageUrls.add("https://i.redd.it/k98uzl68eh501.jpg");
+        mNames.add("Frozen Lake");
+
+
+        mImageUrls.add("https://i.redd.it/glin0nwndo501.jpg");
+        mNames.add("White Sands Desert");
+
+        mImageUrls.add("https://i.redd.it/obx4zydshg601.jpg");
+        mNames.add("Austrailia");
+
+        mImageUrls.add("https://i.imgur.com/ZcLLrkY.jpg");
+        mNames.add("Washington");
+
+        initRecyclerView();
+    }
+
+    private void initRecyclerView(){
+        Log.d(TAG, "initRecyclerView: init recyclerview.");
+        RecyclerView recyclerView = findViewById(R.id.results_recycler_view);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
 }

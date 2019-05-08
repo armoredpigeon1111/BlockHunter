@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
          ****Use this to switch to your activity for testing...*******
          *************************************************************
          *************************************************************/
-        //startActivity(new Intent(MainActivity.this,
-        //       ResultsActivity.class)); //REPLACE WITH YOUR ACTIVITY CLASS(mine isn't operational yet)
+        startActivity(new Intent(MainActivity.this,
+              ResultsActivity.class)); //REPLACE WITH YOUR ACTIVITY CLASS(mine isn't operational yet)
 
     }
 }
