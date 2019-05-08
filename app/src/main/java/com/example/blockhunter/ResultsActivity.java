@@ -1,10 +1,11 @@
 package com.example.blockhunter;
 //Richard is Working on Results page
 //Doesn't work yet...Don't freak out if you try it
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
 
 
 public class ResultsActivity extends AppCompatActivity {
