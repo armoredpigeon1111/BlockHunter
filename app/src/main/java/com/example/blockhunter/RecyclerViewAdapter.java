@@ -16,7 +16,8 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 /**
- * Created by User on 1/1/2018.
+ * Created by User on
+ * 1/1/2018.
  */
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
