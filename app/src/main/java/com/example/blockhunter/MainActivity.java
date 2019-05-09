@@ -18,11 +18,7 @@ public class MainActivity extends AppCompatActivity {
          ****Use this to switch to your activity for testing...*******
          *************************************************************
          *************************************************************/
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         startActivity(new Intent(MainActivity.this,
               ResultsActivity.class)); //REPLACE WITH YOUR ACTIVITY CLASS(mine isn't operational yet)
     }
