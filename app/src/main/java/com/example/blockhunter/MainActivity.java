@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         startActivity(new Intent(MainActivity.this,
                 SplashActivity.class));
         /*************************************************************
@@ -17,8 +18,12 @@ public class MainActivity extends AppCompatActivity {
          ****Use this to switch to your activity for testing...*******
          *************************************************************
          *************************************************************/
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         startActivity(new Intent(MainActivity.this,
               ResultsActivity.class)); //REPLACE WITH YOUR ACTIVITY CLASS(mine isn't operational yet)
-
     }
 }
