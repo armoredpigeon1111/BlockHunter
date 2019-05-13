@@ -1,17 +1,22 @@
 package com.example.blockhunter;
 
 
+import android.content.Context;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class ResultsActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
 
     //vars
     private ArrayList<String> mNames = new ArrayList<>();
@@ -23,7 +28,10 @@ public class ResultsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_results);
         Log.d(TAG, "onCreate: started.");
 
+
         initImageBitmaps();
+        locationButtonHandler();
+
     }
 
     private void initImageBitmaps(){
@@ -65,5 +73,20 @@ public class ResultsActivity extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    }
+
+    private void locationButtonHandler(){
+        FloatingActionButton locationButton = findViewById(R.id.btnLocation);
+        locationButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                //get location stuff
+                Context context = getApplicationContext();
+                String locToastText = "Toasty Location Stuff";
+                int locDuration = Toast.LENGTH_SHORT;
+                Toast locToast = Toast.makeText(context, locToastText,locDuration);
+                locToast.show();
+            }
+        });
+
     }
 }
