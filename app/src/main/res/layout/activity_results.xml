@@ -12,7 +12,7 @@
         android:layout_height="match_parent" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/btnLocation"
         android:layout_width="102dp"
         android:layout_height="85dp"
         android:layout_alignRight="@id/results_recycler_view"
