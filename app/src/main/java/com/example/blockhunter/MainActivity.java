@@ -13,11 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(new Intent(MainActivity.this,
                 SplashActivity.class));
-        /*************************************************************
-         *************************************************************
-         ****Use this to switch to your activity for testing...*******
-         *************************************************************
-         *************************************************************/
+
 
 
     }
