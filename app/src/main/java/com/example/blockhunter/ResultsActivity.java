@@ -90,14 +90,16 @@ public class ResultsActivity extends AppCompatActivity {
                 //get location stuff
 
                 if (ActivityCompat.checkSelfPermission(ResultsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                                ResultsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                        == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                                ResultsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     // TODO: Consider calling
                     //    ActivityCompat#requestPermissions*/
                     LocationListener locationListener = new MyLocationListener();
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 
                     return;
+                }else{
+                    Toast.makeText(ResultsActivity.this, "hi you dead", Toast.LENGTH_LONG).show();
                 }
 
             }
