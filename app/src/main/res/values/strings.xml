@@ -3,4 +3,8 @@
     <string name="description_sample">This is a description of the product. This can be changed depending on the product using API\'s</string>
     <string name="image_description">This is an image pulled form the external resources</string>
     <string name="retailers_list">this text box shows the list of the retail </string>
+
+    <!--Search Activity-->
+    <string name="search_title">Search</string>
+    <string name="search_hint">Enter text to search</string>
 </resources>
