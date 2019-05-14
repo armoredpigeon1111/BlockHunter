@@ -1,8 +1,15 @@
 package com.example.blockhunter;
 
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.location.LocationProvider;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,7 +41,7 @@ public class ResultsActivity extends AppCompatActivity {
 
     }
 
-    private void initImageBitmaps(){
+    private void initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
         mImageUrls.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
@@ -67,7 +74,7 @@ public class ResultsActivity extends AppCompatActivity {
         initRecyclerView();
     }
 
-    private void initRecyclerView(){
+    private void initRecyclerView() {
         Log.d(TAG, "initRecyclerView: init recyclerview.");
         RecyclerView recyclerView = findViewById(R.id.results_recycler_view);
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, mNames, mImageUrls);
@@ -75,18 +82,47 @@ public class ResultsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void locationButtonHandler(){
+    private void locationButtonHandler() {
         FloatingActionButton locationButton = findViewById(R.id.btnLocation);
-        locationButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
                 //get location stuff
-                Context context = getApplicationContext();
-                String locToastText = "Toasty Location Stuff";
-                int locDuration = Toast.LENGTH_SHORT;
-                Toast locToast = Toast.makeText(context, locToastText,locDuration);
-                locToast.show();
+
+                if (ActivityCompat.checkSelfPermission(ResultsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
+                        == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
+                                ResultsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions*/
+                    LocationListener locationListener = new MyLocationListener();
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+
+                    return;
+                }else{
+                    Toast.makeText(ResultsActivity.this, "hi you dead", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
+    }
+
+    private class MyLocationListener implements LocationListener {
+        public void onLocationChanged(Location loc){
+            String message = String.format(
+                    "New Location \n Longitude: %1$s \n Latitude: %2$s",
+                    loc.getLongitude(), loc.getLatitude()
+            );
+            Toast.makeText(ResultsActivity.this, message, Toast.LENGTH_LONG).show();
+        }
+        public void onProviderDisabled(String arg0) {
+
+        }
+        public void onProviderEnabled(String provider) {
+
+        }
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
     }
 }
