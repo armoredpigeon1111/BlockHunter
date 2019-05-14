@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity {
          *************************************************************/
 
         startActivity(new Intent(SplashActivity.this,
-                ResultsActivity.class)); //REPLACE WITH YOUR ACTIVITY CLASS(mine isn't operational yet)
+                SearchActiviy.class)); //REPLACE WITH YOUR ACTIVITY CLASS(mine isn't operational yet)
         finish();
     }
 }
