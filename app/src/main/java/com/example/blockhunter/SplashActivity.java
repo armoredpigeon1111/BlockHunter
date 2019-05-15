@@ -14,14 +14,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /*************************************************************
-         *************************************************************
-         ****Use this to switch to your activity for testing...*******
-         *************************************************************
-         *************************************************************/
-
         startActivity(new Intent(SplashActivity.this,
-                SearchActiviy.class)); //REPLACE WITH YOUR ACTIVITY CLASS(mine isn't operational yet)
+                ResultsActivity.class)); //REPLACE WITH YOUR ACTIVITY CLASS
         finish();
     }
 }
