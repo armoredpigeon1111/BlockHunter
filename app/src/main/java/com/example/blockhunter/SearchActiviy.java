@@ -9,8 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
+import android.widget.SearchView;
 import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
 
 import java.util.ArrayList;
 
@@ -27,7 +30,23 @@ public class SearchActiviy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_activiy);
 
+       //Made this searchView stuff
+        SearchView searchView = findViewById(R.id.searchView);
+        CharSequence query = searchView.getQuery();
+        final String queryString = query.toString();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
 
+                                              @Override
+                                              public boolean onQueryTextSubmit(String query) {
+                                                  Toast.makeText(SearchActiviy.this, query, Toast.LENGTH_LONG).show();
+                                                  return false;
+                                              }
+
+                                              @Override
+                                              public boolean onQueryTextChange(String newText) {
+                                                  return false;
+                                              }
+                                          });
 
 
         initSearchResults();
