@@ -11,15 +11,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btnLocation"
-        android:layout_width="102dp"
-        android:layout_height="85dp"
-        android:layout_alignRight="@id/results_recycler_view"
-        android:layout_alignBottom="@id/results_recycler_view"
-        android:clickable="true"
-        android:focusable="auto"
-        app:srcCompat="@android:drawable/ic_menu_mylocation" />
-
 
 </RelativeLayout>
