@@ -39,6 +39,8 @@ public class SearchActiviy extends AppCompatActivity {
                                               @Override
                                               public boolean onQueryTextSubmit(String query) {
                                                   Toast.makeText(SearchActiviy.this, query, Toast.LENGTH_LONG).show();
+                                                  FetchData fd = new FetchData();
+                                                  fd.execute();
                                                   return false;
                                               }
 
