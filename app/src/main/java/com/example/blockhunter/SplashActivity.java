@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         startActivity(new Intent(SplashActivity.this,
-                ResultsActivity.class)); //REPLACE WITH YOUR ACTIVITY CLASS
+                SearchActiviy.class)); //REPLACE WITH YOUR ACTIVITY CLASS
         finish();
     }
 }

@@ -22,7 +22,7 @@ public class SearchActiviy extends AppCompatActivity {
     //vars
     private ArrayList<String> sResultDescription = new ArrayList<>();
     private ArrayList<String> sResultItem = new ArrayList<>();
-
+    private ArrayList<Product> products= new ArrayList<>();
 
 
     @Override
@@ -41,6 +41,12 @@ public class SearchActiviy extends AppCompatActivity {
           Toast.makeText(SearchActiviy.this, query, Toast.LENGTH_LONG).show();
           FetchData fd = new FetchData();
           fd.execute();
+          products = fd.productList;
+          try {
+              initSearchResults(products);
+          } catch (InterruptedException e) {
+              e.printStackTrace();
+          }
           return false;
       }
 
@@ -51,10 +57,18 @@ public class SearchActiviy extends AppCompatActivity {
         });
 
 
-        initSearchResults();
     }
 
-        private void initSearchResults(){
+
+
+    private void initSearchResults(ArrayList<Product> products) throws InterruptedException {
+
+        Thread.sleep(10000);
+        sResultDescription.add(products.get(1).getProductDescription());
+        initRecyclerView();
+    }
+
+    private void initSearchResults(){
            // Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
 
             sResultItem.add("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg");
