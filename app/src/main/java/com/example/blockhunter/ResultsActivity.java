@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class ResultsActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-
+    private static final int REQUEST_LOCATION = 123;
 
     //vars
     private ArrayList<String> mNames = new ArrayList<>();
@@ -83,46 +83,15 @@ public class ResultsActivity extends AppCompatActivity {
     }
 
     private void locationButtonHandler() {
-        FloatingActionButton locationButton = findViewById(R.id.btnLocation);
-        final LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //get location stuff
 
-                if (ActivityCompat.checkSelfPermission(ResultsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
-                        == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
-                                ResultsActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions*/
-                    LocationListener locationListener = new MyLocationListener();
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-
-                    return;
-                }else{
-                    Toast.makeText(ResultsActivity.this, "hi you dead", Toast.LENGTH_LONG).show();
-                }
-
-            }
-        });
 
     }
 
-    private class MyLocationListener implements LocationListener {
-        public void onLocationChanged(Location loc){
-            String message = String.format(
-                    "New Location \n Longitude: %1$s \n Latitude: %2$s",
-                    loc.getLongitude(), loc.getLatitude()
-            );
-            Toast.makeText(ResultsActivity.this, message, Toast.LENGTH_LONG).show();
-        }
-        public void onProviderDisabled(String arg0) {
-
-        }
-        public void onProviderEnabled(String provider) {
-
-        }
-        public void onStatusChanged(String provider, int status, Bundle extras) {
-
-        }
+    public FloatingActionButton locationFAB(Context context){
+        FloatingActionButton locFAB = new FloatingActionButton(context);
+        return locFAB;
     }
+
+
+
 }
