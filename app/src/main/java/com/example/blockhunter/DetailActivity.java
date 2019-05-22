@@ -1,5 +1,4 @@
 package com.example.blockhunter;
-//Mohammad is working on Detail Activity
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,15 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+//TODO: Larger image, Price and Description
 public class DetailActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,10 +32,5 @@ public class DetailActivity extends AppCompatActivity {
                             .asBitmap()
                             .load(image)
                             .into(pImage);
-
-
-
-
-
     }
 }
