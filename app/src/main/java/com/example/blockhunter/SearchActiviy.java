@@ -60,12 +60,15 @@ public class SearchActiviy extends AppCompatActivity {
     }
 
 
-
     private void initSearchResults(ArrayList<Product> products) throws InterruptedException {
 
-        Thread.sleep(10000);
-        sResultDescription.add(products.get(1).getProductDescription());
-        initRecyclerView();
+        Thread.sleep(5000);
+        for(Product product : products){
+            sResultDescription.add(product.getProductName());
+            sResultItem.add(product.getProductThumbnail());
+
+        }
+            initRecyclerView();
     }
 
     private void initSearchResults(){

@@ -43,7 +43,8 @@ public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
             JSONObject jsonObject1 = new JSONObject(data);
 //            JSONObject response = jsonObject1.getJSONObject("items");
             JSONArray jsonArray = jsonObject1.getJSONArray("items");
-            String productName,description,msrp, salePrice, upc = "";
+            String productName,description,msrp, salePrice, upc, thumbnail = "";
+
             for(int i = 0 ; i < jsonArray.length();i++){
                 JSONObject jsonObject = (JSONObject)jsonArray.get(i);
                 productName = jsonObject.get("name").toString();
@@ -51,9 +52,9 @@ public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
                 msrp = jsonObject.get("msrp").toString();
                 salePrice = jsonObject.get("salePrice").toString();
                 upc = jsonObject.get("upc").toString();
-
+                thumbnail = jsonObject.get("thumbnailImage").toString();
                 System.out.print("Product Name : " + productName +"\t");
-                Product product = new Product(productName, description);
+                Product product = new Product(productName, description, thumbnail);
                 productList.add(product);
 
                 System.out.print("Short Description : " + description+"\t");
