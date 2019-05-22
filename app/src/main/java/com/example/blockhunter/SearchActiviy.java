@@ -33,7 +33,7 @@ public class SearchActiviy extends AppCompatActivity {
        //Made this searchView stuff
         SearchView searchView = findViewById(R.id.searchView);
         CharSequence query = searchView.getQuery();
-        final String queryString = query.toString();
+        final String queryString = query.toString(); // Use this to pass the search item?
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
 
       @Override

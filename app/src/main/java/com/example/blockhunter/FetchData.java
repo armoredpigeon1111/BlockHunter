@@ -13,16 +13,18 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
-public class FetchData extends AsyncTask<Void, Void, Void> {
+public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
+    ArrayList<Product> productList = new ArrayList<Product>();
     @Override
-    protected void onPostExecute(Void newVoid) {
-        super.onPostExecute(newVoid);
+    protected void onPostExecute(ArrayList<Product> productList) {
+        super.onPostExecute(productList);
 
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected ArrayList<Product> doInBackground(Void... voids) {
         try {
         URL url = new URL("http://api.walmartlabs.com/v1/search?apiKey=f95tkjdaepwn7rexbxrb4cs5&query=star%20wars%20lego&numItems=10");
         HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
@@ -51,6 +53,9 @@ public class FetchData extends AsyncTask<Void, Void, Void> {
                 upc = jsonObject.get("upc").toString();
 
                 System.out.print("Product Name : " + productName +"\t");
+                Product product = new Product(productName, description);
+                productList.add(product);
+
                 System.out.print("Short Description : " + description+"\t");
                 System.out.print("MSRP : " + msrp+"\t");
                 System.out.print("Sales Price : " + salePrice+"\t");
@@ -63,6 +68,6 @@ public class FetchData extends AsyncTask<Void, Void, Void> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return null;
+        return productList;
     }
 }
