@@ -36,19 +36,19 @@ public class SearchActiviy extends AppCompatActivity {
         final String queryString = query.toString();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
 
-                                              @Override
-                                              public boolean onQueryTextSubmit(String query) {
-                                                  Toast.makeText(SearchActiviy.this, query, Toast.LENGTH_LONG).show();
-                                                  FetchData fd = new FetchData();
-                                                  fd.execute();
-                                                  return false;
-                                              }
+      @Override
+      public boolean onQueryTextSubmit(String query) {
+          Toast.makeText(SearchActiviy.this, query, Toast.LENGTH_LONG).show();
+          FetchData fd = new FetchData();
+          fd.execute();
+          return false;
+      }
 
-                                              @Override
-                                              public boolean onQueryTextChange(String newText) {
-                                                  return false;
-                                              }
-                                          });
+      @Override
+      public boolean onQueryTextChange(String newText) {
+          return false;
+      }
+        });
 
 
         initSearchResults();

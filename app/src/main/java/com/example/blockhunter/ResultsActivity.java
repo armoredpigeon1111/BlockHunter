@@ -1,13 +1,10 @@
 package com.example.blockhunter;
 
 
-import android.Manifest;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,11 +14,15 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.ArrayList;
 
-public class ResultsActivity extends AppCompatActivity {
 
+public class ResultsActivity extends AppCompatActivity {
+    private FusedLocationProviderClient client;
     private static final String TAG = "MainActivity";
     private static final int REQUEST_LOCATION = 123;
 
@@ -37,9 +38,30 @@ public class ResultsActivity extends AppCompatActivity {
 
 
         initImageBitmaps();
-        locationButtonHandler();
+        requestPermission();
 
+        client = LocationServices.getFusedLocationProviderClient(this);
+
+        FloatingActionButton button = locationFAB(this);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View View) {
+                if (ActivityCompat.checkSelfPermission(ResultsActivity.this, ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                }
+                client.getLastLocation().addOnSuccessListener(ResultsActivity.this, new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        if(location != null){
+                            Toast.makeText(ResultsActivity.this, "something",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+            }
+        });
     }
+
+
 
     private void initImageBitmaps() {
         Log.d(TAG, "initImageBitmaps: preparing bitmaps.");
@@ -82,16 +104,15 @@ public class ResultsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void locationButtonHandler() {
 
-
-    }
 
     public FloatingActionButton locationFAB(Context context){
         FloatingActionButton locFAB = new FloatingActionButton(context);
         return locFAB;
     }
 
-
+    private void requestPermission(){
+        ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION}, 1 );
+    }
 
 }
