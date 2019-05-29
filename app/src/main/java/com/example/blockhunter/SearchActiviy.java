@@ -33,13 +33,16 @@ public class SearchActiviy extends AppCompatActivity {
        //Made this searchView stuff
         SearchView searchView = findViewById(R.id.searchView);
         CharSequence query = searchView.getQuery();
-        final String queryString = query.toString(); // Use this to pass the search item?
+
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
 
       @Override
-      public boolean onQueryTextSubmit(String query) {
-          Toast.makeText(SearchActiviy.this, query, Toast.LENGTH_LONG).show();
-          FetchData fd = new FetchData();
+      public boolean onQueryTextSubmit(String queryString) {
+          queryString = "Lego "+queryString.toString().trim(); // Use this to pass the search item?
+          final String queryStringMod = queryString.replaceAll("\\s", "%20");
+          Toast.makeText(SearchActiviy.this, queryStringMod , Toast.LENGTH_LONG).show();
+          FetchData fd = new FetchData(queryStringMod);
           fd.execute();
           products = fd.productList;
           try {

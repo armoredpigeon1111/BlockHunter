@@ -16,17 +16,31 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
+
     ArrayList<Product> productList = new ArrayList<>();
+    private String query;
+    public FetchData(){
+
+    }
+    public FetchData(String query){
+        this.query = query;
+    }
     @Override
     protected void onPostExecute(ArrayList<Product> productList) {
         super.onPostExecute(productList);
 
     }
+    public String getWalmartApi(){
+        return "http://api.walmartlabs.com/v1/search?apiKey=f95tkjdaepwn7rexbxrb4cs5&query="+query+"&numItems=10";
+    }
+    public String getBestBuyUPCApi(){
+        return "https://api.bestbuy.com/v1/products((search=lego)&upc="+"673419233590"+")?apiKey=QgIu1I4A3VFbIjgGuuIPAsKu&format=json";
+    }
 
     @Override
     protected ArrayList<Product> doInBackground(Void... voids) {
         try {
-        URL url = new URL("http://api.walmartlabs.com/v1/search?apiKey=f95tkjdaepwn7rexbxrb4cs5&query=star%20wars%20lego&numItems=10");
+        URL url = new URL(getWalmartApi());
         HttpURLConnection httpConn = (HttpURLConnection) url.openConnection();
         InputStream iStream = httpConn.getInputStream();
         BufferedReader bf = new BufferedReader(new InputStreamReader(iStream));
@@ -69,6 +83,7 @@ public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
+
         }
         return productList;
     }
