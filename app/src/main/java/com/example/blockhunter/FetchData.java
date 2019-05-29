@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
-    ArrayList<Product> productList = new ArrayList<Product>();
+    ArrayList<Product> productList = new ArrayList<>();
     @Override
     protected void onPostExecute(ArrayList<Product> productList) {
         super.onPostExecute(productList);
@@ -43,7 +43,7 @@ public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
             JSONObject jsonObject1 = new JSONObject(data);
 //            JSONObject response = jsonObject1.getJSONObject("items");
             JSONArray jsonArray = jsonObject1.getJSONArray("items");
-            String productName,description,msrp, salePrice, upc, thumbnail = "";
+            String productName,description,msrp, salePrice, upc, thumbnail, mediumImage = "";
 
             for(int i = 0 ; i < jsonArray.length();i++){
                 JSONObject jsonObject = (JSONObject)jsonArray.get(i);
@@ -53,8 +53,9 @@ public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
                 salePrice = jsonObject.get("salePrice").toString();
                 upc = jsonObject.get("upc").toString();
                 thumbnail = jsonObject.get("thumbnailImage").toString();
+                mediumImage = jsonObject.get("mediumImage").toString();
                 System.out.print("Product Name : " + productName +"\t");
-                Product product = new Product(productName, description, thumbnail);
+                Product product = new Product(productName, description, thumbnail, mediumImage);
                 productList.add(product);
 
                 System.out.print("Short Description : " + description+"\t");

@@ -6,14 +6,25 @@ import java.io.Serializable;
 
 public class Product implements Serializable {
 
-    public Product(String productName, String productDescription, String thumbnail) {
+
+    private String mediumImage;
+    private String productName;
+    private String productDescription;
+    private String productThumbnail;
+
+    public Product(String productName, String productDescription, String thumbnail, String mediumImage) {
         this.productName = productName;
         this.productDescription = productDescription;
         this.productThumbnail =  thumbnail;
+        this.mediumImage = mediumImage;
     }
 
-    private String productName;
-    private String productDescription;
+    public String getMediumImage() {
+        return mediumImage;
+    }
+    public void setMediumImage(String mediumImage) {
+        this.mediumImage = mediumImage;
+    }
 
     public String getProductThumbnail() {
         return productThumbnail;
@@ -22,9 +33,6 @@ public class Product implements Serializable {
     public void setProductThumbnail(String productThumbnail) {
         this.productThumbnail = productThumbnail;
     }
-
-    private String productThumbnail;
-
 
     public String getProductDescription(){
         return this.productDescription;

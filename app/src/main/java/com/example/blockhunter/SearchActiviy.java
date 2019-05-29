@@ -65,7 +65,7 @@ public class SearchActiviy extends AppCompatActivity {
         Thread.sleep(5000);
         for(Product product : products){
             sResultDescription.add(product.getProductName());
-            sResultItem.add(product.getProductThumbnail());
+            sResultItem.add(product.getMediumImage());
 
         }
             initRecyclerView();
