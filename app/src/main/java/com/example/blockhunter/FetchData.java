@@ -70,6 +70,8 @@ public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
                 mediumImage = jsonObject.get("mediumImage").toString();
                 System.out.print("Product Name : " + productName +"\t");
                 Product product = new Product(productName, description, thumbnail, mediumImage);
+                product.setMsrp(msrp);
+                product.setWalmartPrice(salePrice);
                 productList.add(product);
 
                 System.out.print("Short Description : " + description+"\t");

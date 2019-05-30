@@ -19,18 +19,24 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-                    Intent intent = getIntent();
-                    String name = intent.getStringExtra("image_name");
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("image_name");
 
-                    TextView txtName = findViewById(R.id.txtProductTitle);
-                    txtName.setText(name);
+        TextView txtName = findViewById(R.id.txtProductTitle);
+        txtName.setText(name);
 
-                    String image = intent.getStringExtra("image_url");
-                    ImageView pImage = findViewById(R.id.imgProductDetail);
+        TextView bbPrice = findViewById(R.id.bbPrice);
+        bbPrice.setText(name);
 
-                    Glide.with(DetailActivity.this)
-                            .asBitmap()
-                            .load(image)
-                            .into(pImage);
+        TextView walmartPrice = findViewById(R.id.walmartPrice);
+        walmartPrice.setText(name);
+
+        String image = intent.getStringExtra("image_url");
+        ImageView pImage = findViewById(R.id.imgProductDetail);
+
+        Glide.with(DetailActivity.this)
+                .asBitmap()
+                .load(image)
+                .into(pImage);
     }
 }

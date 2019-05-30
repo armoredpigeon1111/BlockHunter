@@ -11,6 +11,9 @@ public class Product implements Serializable {
     private String productName;
     private String productDescription;
     private String productThumbnail;
+    private String msrp;
+    private String walmartPrice;
+    private String bbPrice;
 
     public Product(String productName, String productDescription, String thumbnail, String mediumImage) {
         this.productName = productName;
@@ -50,6 +53,29 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
+    public String getMsrp() {
+        return msrp;
+    }
+
+    public void setMsrp(String msrp) {
+        this.msrp = msrp;
+    }
+
+    public String getWalmartPrice() {
+        return walmartPrice;
+    }
+
+    public void setWalmartPrice(String walmartPrice) {
+        this.walmartPrice = walmartPrice;
+    }
+
+    public String getBbPrice() {
+        return bbPrice;
+    }
+
+    public void setBbPrice(String bbPrice) {
+        this.bbPrice = bbPrice;
+    }
 
 
 }
