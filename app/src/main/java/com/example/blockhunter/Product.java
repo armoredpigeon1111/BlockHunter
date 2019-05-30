@@ -1,11 +1,8 @@
 package com.example.blockhunter;
 
-/*Product Object Class*/
-
 import java.io.Serializable;
 
 public class Product implements Serializable {
-
 
     private String mediumImage;
     private String productName;

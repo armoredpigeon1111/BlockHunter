@@ -23,7 +23,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".DetailActivity" />
-        <activity android:name=".ResultsActivity" />
         <activity android:name=".SearchActiviy" />
 
         <activity android:name=".MainActivity">
