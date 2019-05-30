@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "317639909580",
+    "firebase_url": "https://blockhunter-cis432.firebaseio.com",
+    "project_id": "blockhunter-cis432",
+    "storage_bucket": "blockhunter-cis432.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:317639909580:android:571cf6d0ee05d75c",
+        "android_client_info": {
+          "package_name": "com.example.blockhunter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "317639909580-o5jou1a3j47u0qr818i2tcu36uupb2mu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_hzuKEF8zCHOK-AhVQDi1WpU2iRxYgrQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "317639909580-o5jou1a3j47u0qr818i2tcu36uupb2mu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
