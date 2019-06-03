@@ -20,9 +20,9 @@ public class firebaseConnector {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
-
-    //myRef.setValue()
-
+    public void sendFirebaseData(/*product*/) {
+        myRef.setValue("1234567890"/*product*/);
+    }
     public void getFirebaseData(){
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
