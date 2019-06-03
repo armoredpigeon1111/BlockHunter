@@ -22,8 +22,8 @@ public class SearchActiviy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_activiy);
         /*******LOCATION STUFF*************/
-        LocationRequisition locReq = new LocationRequisition();
-        locReq.getLocation();
+       // LocationRequisition locReq = new LocationRequisition();
+       // locReq.getLocation();
         /********END LOCATION STUFF********/
         SearchView searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
