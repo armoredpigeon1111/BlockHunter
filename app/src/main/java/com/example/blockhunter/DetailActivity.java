@@ -20,7 +20,10 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("image_name");
+
+        Product product = (Product)intent.getSerializableExtra("product");
+
+        String name = product.getProductName();//intent.getStringExtra("image_name");
 
         TextView txtName = findViewById(R.id.txtProductTitle);
         txtName.setText(name);
@@ -29,9 +32,9 @@ public class DetailActivity extends AppCompatActivity {
         bbPrice.setText(name);
 
         TextView walmartPrice = findViewById(R.id.walmartPrice);
-        walmartPrice.setText(name);
+        walmartPrice.setText(product.getWalmartPrice());
 
-        String image = intent.getStringExtra("image_url");
+        String image = product.getMediumImage();//intent.getStringExtra("image_url");
         ImageView pImage = findViewById(R.id.imgProductDetail);
 
         Glide.with(DetailActivity.this)

@@ -12,6 +12,10 @@ public class Product implements Serializable {
     private String walmartPrice;
     private String bbPrice;
 
+
+
+    private String upc;
+
     public Product(String productName, String productDescription, String thumbnail, String mediumImage) {
         this.productName = productName;
         this.productDescription = productDescription;
@@ -73,6 +77,12 @@ public class Product implements Serializable {
     public void setBbPrice(String bbPrice) {
         this.bbPrice = bbPrice;
     }
+    public String getUpc() {
+        return upc;
+    }
 
+    public void setUpc(String upc) {
+        this.upc = upc;
+    }
 
 }

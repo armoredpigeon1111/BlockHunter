@@ -50,17 +50,19 @@ public class SearchActiviy extends AppCompatActivity {
     }
 
     private void initSearchResults(ArrayList<Product> products) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         for(Product product : products){
             sResultDescription.add(product.getProductName());
             sResultItem.add(product.getMediumImage());
         }
-            initRecyclerView();
+            //Intent intent = new Intent();
+            //intent.putExtra("productList",products);
+            initRecyclerView(products);
     }
 
-    private void initRecyclerView(){
+    private void initRecyclerView(ArrayList<Product> products){
         RecyclerView recyclerView = findViewById(R.id.results_recycler_view1);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, sResultDescription, sResultItem);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(this, products);// sResultDescription, sResultItem);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }

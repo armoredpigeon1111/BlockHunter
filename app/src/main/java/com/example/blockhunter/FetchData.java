@@ -72,6 +72,7 @@ public class FetchData extends AsyncTask<Void, Void, ArrayList<Product>> {
                 Product product = new Product(productName, description, thumbnail, mediumImage);
                 product.setMsrp(msrp);
                 product.setWalmartPrice(salePrice);
+                product.setUpc(upc);
                 productList.add(product);
 
                 System.out.print("Short Description : " + description+"\t");
