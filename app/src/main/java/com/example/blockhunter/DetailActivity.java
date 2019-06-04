@@ -34,6 +34,9 @@ public class DetailActivity extends AppCompatActivity {
         TextView walmartPrice = findViewById(R.id.walmartPrice);
         walmartPrice.setText(product.getWalmartPrice());
 
+        TextView description = findViewById(R.id.txtDescription);
+        description.setText(product.getProductDescription());
+
         String image = product.getMediumImage();//intent.getStringExtra("image_url");
         ImageView pImage = findViewById(R.id.imgProductDetail);
 
