@@ -14,14 +14,19 @@ import static android.support.constraint.Constraints.TAG;
 
 public class firebaseConnector {
 
+    private String upc ="";
     public firebaseConnector(){
 
+    }
+    public firebaseConnector(String upc){
+        this.upc = upc;
     }
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("message");
-    public void sendFirebaseData(/*product*/) {
-        myRef.setValue("1234567890"/*product*/);
+
+    public void sendFirebaseData(String upc) {
+        myRef.setValue(upc);
     }
     public void getFirebaseData(){
         myRef.addValueEventListener(new ValueEventListener() {
