@@ -15,6 +15,7 @@ public class Product implements Serializable {
 
 
     private String upc;
+    private String BBUrl;
 
     public Product(String productName, String productDescription, String thumbnail, String mediumImage) {
         this.productName = productName;
@@ -85,4 +86,11 @@ public class Product implements Serializable {
         this.upc = upc;
     }
 
+    public void setBBUrl(String bbUrl) {
+        this.BBUrl = bbUrl;
+    }
+
+    public String getBBUrl() {
+        return BBUrl;
+    }
 }

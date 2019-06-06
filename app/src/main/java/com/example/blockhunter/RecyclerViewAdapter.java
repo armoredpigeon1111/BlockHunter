@@ -71,10 +71,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 intent.putExtra("image_url", mImages.get(position));
                 intent.putExtra("image_name", mImageNames.get(position));
                 */
-
                 int clickPosition = position;  // get position of clicked item
+                Product newObject = products1.get(clickPosition);
+                BBFetchData bb = new BBFetchData(newObject.getUpc());
 
-                Product newObject = products1.get(clickPosition);   // get clicked new object from news(news is an ArrayList)
+                bb.execute(newObject, null, newObject);
+
+                   // get clicked new object from news(news is an ArrayList)
 
                 intent.putExtra("product", newObject);
 
